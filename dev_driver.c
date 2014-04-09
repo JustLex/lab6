@@ -8,7 +8,7 @@
 #include <linux/sched.h>
 
 MODULE_LICENSE( "GPL" );
-MODULE_AUTHOR( "Aleksei Zhakov" );
+MODULE_AUTHOR( "justlex i kir9k i microwolnovka" );
 MODULE_DESCRIPTION( "Test module" );
 MODULE_SUPPORTED_DEVICE( "timer_out" );
 
@@ -30,7 +30,6 @@ static int is_device_open = 0;
 static char text[ 5 ] = "hello\n";
 static char* text_ptr = text; /* Указатель на текущую позицию в тексте */
 static int tick = 0;
-static bool running = false;
 static struct hrtimer htimer;
 static ktime_t kt_periode;
 
@@ -106,7 +105,6 @@ static int device_release (struct inode *inode, struct file *file)
 static ssize_t device_write (struct file *filp, char *buf, size_t count, loff_t *f_pos) 
 {
     sscanf(buf, "%d", &tick);
-    printk("zapisal: %d\n", tick);
     return 1;
 }
 
@@ -125,8 +123,5 @@ static ssize_t device_read (struct file *filp, char *buffer,size_t length, loff_
     return byte_read;
 }
 
-
-
-// Указываем наши функции загрузки и выгрузки
 module_init( test_init );
 module_exit( test_exit );
