@@ -8,7 +8,7 @@
 #include <linux/sched.h>
 
 MODULE_LICENSE( "GPL" );
-MODULE_AUTHOR( "justlex i kir9k i microwolnovka" );
+MODULE_AUTHOR( "justlex kir9k microwolnovka" );
 MODULE_DESCRIPTION( "Test module" );
 MODULE_SUPPORTED_DEVICE( "timer_out" );
 
